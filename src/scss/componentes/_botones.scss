@@ -1,0 +1,51 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton {
+    @include m.boton(v.$azul, v.$blanco);
+}
+.boton-eliminar {
+    @include m.boton(v.$rojo, v.$blanco);
+}
+
+#schedule {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+@include m.tablet{
+    #schedule {
+        grid-template-columns: repeat(4, 1fr); /* Cuatro horarios por fila */
+        gap: 10px;
+        margin: 20px;
+    }
+}
+
+
+.time-slot {
+    padding: 10px;
+    color: v.$negro;
+    font-size: v.$bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: v.$azul;
+
+}
+
+.time-slot.taken {
+    background-color: #d3d3d3; /* Gris para horarios ocupados */
+    cursor: not-allowed;
+}
+
+.time-slot:hover:not(.taken) {
+    background-color: #054261; /* Color al pasar el mouse sobre horarios disponibles */
+}
+
+.time-slot.selected {
+    background-color: #1f6a8f; /* Color más oscuro para indicar selección */
+    color: #fff;
+    border: 4px solid #3fa9fa;
+}

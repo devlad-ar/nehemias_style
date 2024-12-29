@@ -316,14 +316,12 @@ async function reservarCita() {
         return;
     }
 
-    // Preparar los datos para enviar
     const idServicios = servicios.map(servicio => servicio.id);
     const datos = new FormData();
     datos.append('usuarioId', id);
     datos.append('fecha', fecha);
     datos.append('hora', hora);
-    datos.append('servicios', idServicios.join(',')); // Convertir a una cadena separada por comas
-    
+    datos.append('servicios', idServicios.join(','));
 
     try {
         const url = '/api/citas';
@@ -332,6 +330,9 @@ async function reservarCita() {
             body: datos
         });
 
+        if (!respuesta.ok) {
+            throw new Error(`Error HTTP: ${respuesta.status}`);
+        }
         const resultado = await respuesta.json();
 
         if (resultado.resultado) {
@@ -358,10 +359,7 @@ async function reservarCita() {
         });
         console.error('Error al guardar la cita:', error);
     }
-    
-
 }
-
 
 
 function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {

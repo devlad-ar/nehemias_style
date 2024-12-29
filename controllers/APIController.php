@@ -5,6 +5,7 @@ namespace Controllers;
 use Model\Cita;
 use Model\CitaServicio;
 use Model\Servicio;
+use Model\Usuario;
 
 class APIController {
     public static function index() {
@@ -24,17 +25,25 @@ class APIController {
                 return;
             }
     
-            // Guardar la cita y obtener el ID
+            // Validar si el usuario existe
+            $usuarioId = $_POST['usuarioId'];
+            $existeUsuario = Usuario::find($usuarioId);
+            
+            if (!$existeUsuario) {
+                echo json_encode([
+                    'resultado' => false,
+                    'mensaje' => 'El usuario especificado no existe.'
+                ]);
+                return;
+            }
+    
             $cita = new Cita([
                 'usuarioId' => $_POST['usuarioId'],
                 'fecha' => $_POST['fecha'],
-                'hora' => $_POST['hora'],
-                'estado_pago' => 'pendiente', // Estado inicial
-                'referencia_pago' => null     // Se actualizará después del pago
+                'hora' => $_POST['hora']
             ]);
-            
+    
             $resultado = $cita->guardar();
-            
     
             if (!$resultado || !isset($resultado['id'])) {
                 echo json_encode([
@@ -44,9 +53,8 @@ class APIController {
                 return;
             }
     
-            $citaId = $resultado['id']; // Obtener el ID de la cita guardada
+            $citaId = $resultado['id'];
     
-            // Guardar los servicios relacionados
             $idServicios = explode(',', $_POST['servicios']);
             foreach ($idServicios as $idServicio) {
                 $citaServicio = new CitaServicio([
@@ -63,13 +71,14 @@ class APIController {
                 }
             }
     
-            // Respuesta exitosa
             echo json_encode([
                 'resultado' => true,
                 'mensaje' => 'La cita fue creada correctamente.'
             ]);
+            die();
     
         } catch (Exception $e) {
+            http_response_code(500); // Indica error en el servidor
             echo json_encode([
                 'resultado' => false,
                 'mensaje' => 'Error inesperado: ' . $e->getMessage()
@@ -79,7 +88,6 @@ class APIController {
     
     
     
-
     public static function eliminar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
@@ -125,7 +133,7 @@ class APIController {
             header('Content-Type: application/json');
             echo json_encode(['horasOcupadas' => $horasOcupadas]);
         } catch (Exception $e) {
-            header('Content-Type: application/json', true, 500);
+            header('Content-Type: aapplication/json', true, 500);
             echo json_encode(['error' => $e->getMessage()]);
         }
     }

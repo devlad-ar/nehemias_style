@@ -1,0 +1,5 @@
+[30-Dec-2024 23:07:37 Europe/Berlin] PHP Deprecated:  Using ${var} in strings is deprecated, use {$var} instead in C:\Users\Elias Arroyo\Desktop\Nehemias_Style_citas\models\ActiveRecord.php on line 208
+[30-Dec-2024 23:07:42 Europe/Berlin] PHP Deprecated:  Using ${var} in strings is deprecated, use {$var} instead in C:\Users\Elias Arroyo\Desktop\Nehemias_Style_citas\models\ActiveRecord.php on line 208
+[30-Dec-2024 23:07:42 Europe/Berlin] PHP Deprecated:  Using ${var} in strings is deprecated, use {$var} instead in C:\Users\Elias Arroyo\Desktop\Nehemias_Style_citas\models\ActiveRecord.php on line 208
+[30-Dec-2024 23:07:42 Europe/Berlin] PHP Deprecated:  Using ${var} in strings is deprecated, use {$var} instead in C:\Users\Elias Arroyo\Desktop\Nehemias_Style_citas\models\ActiveRecord.php on line 208
+[30-Dec-2024 23:07:45 Europe/Berlin] PHP Deprecated:  Using ${var} in strings is deprecated, use {$var} instead in C:\Users\Elias Arroyo\Desktop\Nehemias_Style_citas\models\ActiveRecord.php on line 208

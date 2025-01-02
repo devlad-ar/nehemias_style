@@ -24,5 +24,20 @@
             color: v.$blanco;
             cursor: not-allowed;
         }
+    }   
+}
+.aclaracion_horas{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    .aclaracion_1{
+        border: 1rem solid v.$ocupado;
+    }
+    .aclaracion_2{
+        border: 1rem solid v.$azul;
+    }
+    .aclaracion_3{
+        border: 1rem solid v.$seleccionado;
     }
 }

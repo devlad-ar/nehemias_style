@@ -19,8 +19,13 @@
     </div>
     <div id="paso-2" class="seccion">
         <h2>Tus Datos y Cita</h2>
-        <p class="text-center">Coloca tus datos y fecha de tu cita</p>
-
+        <p class="text-center">Coloca la fecha (recuerda que solo los domingos y lunes se trabaja con turnos) 
+            y selecciona la hora de tu cita</p>
+        <div class="aclaracion_horas">
+            <div class="aclaracion_1"></div><span>Ocupado | </span>
+            <div class="aclaracion_2"></div><span>Disponible | </span>
+            <div class="aclaracion_3"></div><span>Seleccionado</span>
+        </div>
         <form class="formulario">
             <div class="campo">
                 <label for="nombre">Nombre</label>
@@ -67,7 +72,7 @@
     $script = "
         <script src='https://sdk.mercadopago.com/js/v2'></script>
         <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script src='build/js/app.js'></script>
+        <script src='/public/build/js/app.js'></script>
 
     ";
 ?>

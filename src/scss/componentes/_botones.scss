@@ -31,21 +31,21 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: v.$regular;
     background-color: v.$azul;
-
 }
 
 .time-slot.taken {
-    background-color: #d3d3d3; /* Gris para horarios ocupados */
+    background-color: v.$ocupado;
     cursor: not-allowed;
 }
 
 .time-slot:hover:not(.taken) {
-    background-color: #054261; /* Color al pasar el mouse sobre horarios disponibles */
+    background-color: #09741b; /* Color al pasar el mouse sobre horarios disponibles */
 }
 
 .time-slot.selected {
-    background-color: #1f6a8f; /* Color más oscuro para indicar selección */
+    background-color: #09741b; /* Color más oscuro para indicar selección */
     color: #fff;
-    border: 4px solid #3fa9fa;
+    border: 4px solid #2bd81b;
 }
